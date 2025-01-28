@@ -33,13 +33,19 @@ ineg (- (suc n)) = + (suc n)
 iplus : Int → Int → Int
 iplus (+ n) (+ m) = + (plus m n)
 iplus (- n) (- m) = - (plus m n)
-iplus (- n) (+ m) = {!   !}
-iplus (+ n) (- m) = {!   !}
+iplus (- zero) (+ m) = + m
+iplus (- (suc n)) (+ m) = ipred (iplus (- n) (+ m))
+iplus (+ zero) (- m) = - m
+iplus (+ (suc n)) (- m) = isuc (iplus (+ n) (- m))
+
 
 -- given i & j, return i - j.
 iminus : Int → Int → Int
-iminus (+ n) (+ m) = {!   !}
-iminus (- n) (- m) = {!   !}
+
+iminus (+ zero) (+ m) = - m 
+iminus (+ (suc n)) (+ m) = isuc (iminus (+ n) (- m))
+iminus (- zero) (- m) = + m
+iminus (- (suc n)) (- m) = isuc (iminus (- n) (+ m))
 iminus (- n) (+ m) = - (plus m n)
 iminus (+ n) (- m) = + (plus m n)
 
