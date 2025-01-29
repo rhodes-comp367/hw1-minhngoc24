@@ -23,7 +23,7 @@ ineg (int a b) = (int b a)
 
 -- given i & j, return i + j.
 iplus : Int → Int → Int
-iplus (int a b) (int c d) = int (plus a d) (plus b c)
+iplus (int a b) (int c d) = int (plus a c) (plus b d)
 -- given i & j, return i - j.
 iminus : Int → Int → Int
 iminus (int a b) (int c d) = int (plus a d) (plus b c)
